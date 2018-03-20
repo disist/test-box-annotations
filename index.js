@@ -1,33 +1,16 @@
 const port = process.env.PORT || 3000;
-const BOX_CLIENT_ID = process.env.BOX_CLIENT_ID;
-const BOX_CLIENT_SECRET = process.env.BOX_CLIENT_SECRET;
-const BOX_PUBLIC_KEY_ID = process.env.BOX_PUBLIC_KEY_ID;
-const BOX_PRIVATE_KEY = process.env.BOX_PRIVATE_KEY.replace('"', '').replace('"', '');
-const BOX_PASSPHRASE = process.env.BOX_PASSPHRASE;
-const BOX_ENTERPRISE_ID = process.env.BOX_ENTERPRISE_ID;
 
 const path = require('path');
 const express = require('express');
+const fs = require('fs');
+const BoxSDK = require('box-node-sdk');
 
-// Initialize SDK
-var BoxSDK = require('box-node-sdk');
+let configFile = fs.readFileSync('./box_config.json');
+configFile = JSON.parse(configFile);
 
-const boxSdk = BoxSDK.getPreconfiguredInstance({
-    "boxAppSettings": {
-        "clientID": BOX_CLIENT_ID,
-        "clientSecret": BOX_CLIENT_SECRET,
-        "appAuth": {
-            "publicKeyID": BOX_PUBLIC_KEY_ID,
-            "privateKey": BOX_PRIVATE_KEY,
-            "passphrase": BOX_PASSPHRASE
-        }
-    },
-    "enterpriseID": BOX_ENTERPRISE_ID
-});
+const boxSdk = BoxSDK.getPreconfiguredInstance(configFile);
 
-console.log('>>', BOX_PRIVATE_KEY);
-
-const client = boxSdk.getAppAuthClient('enterprise', BOX_ENTERPRISE_ID);
+const client = boxSdk.getAppAuthClient('enterprise', configFile.enterpriseID);
 
 // Example of using API to Load file
 /*
