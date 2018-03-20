@@ -18,20 +18,7 @@ const boxSdk = BoxSDK.getPreconfiguredInstance({
         "clientSecret": BOX_CLIENT_SECRET,
         "appAuth": {
             "publicKeyID": BOX_PUBLIC_KEY_ID,
-            "privateKey": BOX_PRIVATE_KEY,
-            "passphrase": BOX_PASSPHRASE
-        }
-    },
-    "enterpriseID": BOX_ENTERPRISE_ID
-});
-
-console.log({
-    "boxAppSettings": {
-        "clientID": BOX_CLIENT_ID,
-        "clientSecret": BOX_CLIENT_SECRET,
-        "appAuth": {
-            "publicKeyID": BOX_PUBLIC_KEY_ID,
-            "privateKey": BOX_PRIVATE_KEY,
+            "privateKey": BOX_PRIVATE_KEY.replace('"', ''),
             "passphrase": BOX_PASSPHRASE
         }
     },
