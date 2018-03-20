@@ -9,6 +9,8 @@ const BOX_ENTERPRISE_ID = process.env.BOX_ENTERPRISE_ID;
 const path = require('path');
 const express = require('express');
 
+console.log('>>', BOX_PRIVATE_KEY);
+
 // Initialize SDK
 var BoxSDK = require('box-node-sdk');
 
