@@ -9,12 +9,23 @@ const BOX_ENTERPRISE_ID = process.env.BOX_ENTERPRISE_ID;
 const path = require('path');
 const express = require('express');
 
-console.log('>>', BOX_PRIVATE_KEY);
-
 // Initialize SDK
 var BoxSDK = require('box-node-sdk');
 
 const boxSdk = BoxSDK.getPreconfiguredInstance({
+    "boxAppSettings": {
+        "clientID": BOX_CLIENT_ID,
+        "clientSecret": BOX_CLIENT_SECRET,
+        "appAuth": {
+            "publicKeyID": BOX_PUBLIC_KEY_ID,
+            "privateKey": BOX_PRIVATE_KEY,
+            "passphrase": BOX_PASSPHRASE
+        }
+    },
+    "enterpriseID": BOX_ENTERPRISE_ID
+});
+
+console.log({
     "boxAppSettings": {
         "clientID": BOX_CLIENT_ID,
         "clientSecret": BOX_CLIENT_SECRET,
