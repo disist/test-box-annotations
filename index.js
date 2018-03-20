@@ -25,7 +25,7 @@ const boxSdk = BoxSDK.getPreconfiguredInstance({
     "enterpriseID": BOX_ENTERPRISE_ID
 });
 
-console.log('>>', BOX_PRIVATE_KEY.replace('"', ''));
+console.log('>>', BOX_PRIVATE_KEY);
 
 const client = boxSdk.getAppAuthClient('enterprise', BOX_ENTERPRISE_ID);
 
