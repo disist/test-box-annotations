@@ -1,0 +1,25 @@
+{
+  "name": "test-box-annotations",
+  "version": "1.0.0",
+  "description": "[Demo page](https://test-box-annotations.herokuapp.com/)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r dotenv/config index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/disist/test-box-annotations.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/disist/test-box-annotations/issues"
+  },
+  "homepage": "https://github.com/disist/test-box-annotations#readme",
+  "dependencies": {
+    "box-node-sdk": "^1.14.1",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3"
+  }
+}

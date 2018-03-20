@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Box Content Preview Demo</title>
+
+    <!-- polyfill.io only loads a Promise polyfill if your browser needs one -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise"></script>
+
+    <!-- Latest version of Preview SDK for your locale -->
+    <script src="https://cdn01.boxcdn.net/platform/preview/1.34.0/en-US/preview.js"></script>
+    <link rel="stylesheet" href="https://cdn01.boxcdn.net/platform/preview/1.34.0/en-US/preview.css" />
+</head>
+
+<body>
+
+    <div class="preview-container"></div>
+
+    <style>
+        .preview-container {
+            border: 1px solid #eee;
+            height: 95vh;
+            width: 100%;
+        }
+    </style>
+
+    <script>
+        var FILE_ID = '283930623804';
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('GET', '/preview-token/' + FILE_ID, false);
+
+        xhr.send();
+
+        if (xhr.status != 200) {
+            alert(xhr.status + ': ' + xhr.statusText);
+        } else {
+            console.log(xhr.responseText);
+
+            var ACCESS_TOKEN = xhr.responseText;
+
+            var preview = new Box.Preview();
+            preview.show(FILE_ID, ACCESS_TOKEN, {
+                container: '.preview-container',
+                header: 'light',
+                showAnnotations: true,
+                viewers: {
+                    Document: {
+                        annotations: {
+                            enabled: true,
+                            enabledTypes: ['draw', 'point']
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
