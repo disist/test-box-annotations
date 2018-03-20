@@ -2,7 +2,7 @@ const port = process.env.PORT || 3000;
 const BOX_CLIENT_ID = process.env.BOX_CLIENT_ID;
 const BOX_CLIENT_SECRET = process.env.BOX_CLIENT_SECRET;
 const BOX_PUBLIC_KEY_ID = process.env.BOX_PUBLIC_KEY_ID;
-const BOX_PRIVATE_KEY = process.env.BOX_PRIVATE_KEY;
+const BOX_PRIVATE_KEY = process.env.BOX_PRIVATE_KEY.replace('"', '').replace('"', '');
 const BOX_PASSPHRASE = process.env.BOX_PASSPHRASE;
 const BOX_ENTERPRISE_ID = process.env.BOX_ENTERPRISE_ID;
 
@@ -18,7 +18,7 @@ const boxSdk = BoxSDK.getPreconfiguredInstance({
         "clientSecret": BOX_CLIENT_SECRET,
         "appAuth": {
             "publicKeyID": BOX_PUBLIC_KEY_ID,
-            "privateKey": BOX_PRIVATE_KEY.replace('"', ''),
+            "privateKey": BOX_PRIVATE_KEY,
             "passphrase": BOX_PASSPHRASE
         }
     },
