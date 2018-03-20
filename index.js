@@ -25,6 +25,8 @@ const boxSdk = BoxSDK.getPreconfiguredInstance({
     "enterpriseID": BOX_ENTERPRISE_ID
 });
 
+console.log('>>', BOX_PRIVATE_KEY.replace('"', ''));
+
 const client = boxSdk.getAppAuthClient('enterprise', BOX_ENTERPRISE_ID);
 
 // Example of using API to Load file
