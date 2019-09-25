@@ -13,24 +13,23 @@ const boxSdk = BoxSDK.getPreconfiguredInstance(configFile);
 const client = boxSdk.getAppAuthClient('enterprise', configFile.enterpriseID);
 
 // Example of using API to Load file
-/*
-var fs = require('fs');
-var stream = fs.createReadStream('path/to/file');
-client.files.uploadFile('48021509595', 'test.pdf', console.log);
-*/
+
+// var stream = fs.createReadStream('./test-big.pdf');
+// client.files.uploadFile('48021509595', 'test-big.pdf', stream)
+//     .then(console.log)
+//     .catch(console.log);
 
 // Example of using API to fetch folder
-/* 
-client.folders.getItems(
-    '48021509595',
-    {
-        fields: 'name,modified_at,size,url,permissions,sync_state',
-        offset: 0,
-        limit: 25
-    },
-    (req, res) => console.log(res)
-);
-*/
+ 
+// client.folders.getItems(
+//     '48021509595',
+//     {
+//         fields: 'name,modified_at,size,url,permissions,sync_state',
+//         offset: 0,
+//         limit: 25
+//     },
+//     (req, res) => console.log(res)
+// );
 
 // const fileId = 283930623804;
 
