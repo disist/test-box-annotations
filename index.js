@@ -14,8 +14,8 @@ const client = boxSdk.getAppAuthClient('enterprise', configFile.enterpriseID);
 
 // Example of using API to Load file
 
-// var stream = fs.createReadStream('./test-big.pdf');
-// client.files.uploadFile('48021509595', 'test-big.pdf', stream)
+// var stream = fs.createReadStream('./29.pdf');
+// client.files.uploadFile('48021509595', '29.pdf', stream)
 //     .then(console.log)
 //     .catch(console.log);
 
